@@ -1,0 +1,23 @@
+.product
+{
+    width: 95vw;
+    margin: auto;
+    margin-top: 70px;
+    display: flex;
+    border: 0.1vh solid whitesmoke;
+    border-radius: 0.5vw;
+}
+
+.product img
+{
+   width: 25vw;
+   height: 400px;
+   padding: 50px;
+   
+
+}
+.product div h1
+{
+   color: rgb(48, 46, 46);
+   padding-top: 15px;
+}

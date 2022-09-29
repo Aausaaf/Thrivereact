@@ -1,24 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import {Route,Routes, useNavigate} from 'react-router-dom'
+import Home from './Page/Home/Home';
+import Login from './Page/Login/Login';
+import Productdetails from './Page/ProductDetails/Productdetails';
+import Navbar from './Navbar';
+import Cart from './Page/Cart/Cart';
+import { useEffect } from 'react';
+import Placeorder from './Page/Cart/placeorder';
+
 
 function App() {
+  const navigate = useNavigate()
+  useEffect(()=>{
+    if(!localStorage.getItem("tokens"))
+    {
+       navigate("/login")
+    }
+  },[]
+  )
+   
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <Navbar/>
+   <Routes>
+    <Route path='/' element={<Home/>}/>
+    <Route path='/login' element={<Login/>}/>
+   <Route path='/product/:id' element={<Productdetails/>}/>
+   <Route path='/cart' element={<Cart/>}/>
+   <Route path='/place' element={<Placeorder/>}/>
+   </Routes>
+   
+   </>
   );
 }
 
